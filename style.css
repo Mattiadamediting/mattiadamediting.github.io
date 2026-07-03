@@ -191,6 +191,7 @@ h2 .clip-mark { font-family: var(--mono); font-weight: 400; }
   margin: 4px 0 10px;
 }
 .work-body > p:not(.work-role) { font-size: 15px; color: var(--moviola); margin-bottom: 14px; }
+.work-links { display: flex; gap: 16px; }
 .work-link { color: var(--pergamena); font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--cotto); }
 .work-link:hover { color: var(--cotto); }
 .work-link[data-pending] { opacity: 0.45; pointer-events: none; }
