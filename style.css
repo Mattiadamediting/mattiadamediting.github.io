@@ -170,6 +170,7 @@ h2 .clip-mark { font-family: var(--mono); font-weight: 400; }
   transition: border-color 0.25s ease, transform 0.25s ease;
 }
 .work:hover { border-color: var(--cotto); transform: translateY(-3px); }
+.work.clickable { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { .work:hover { transform: none; } }
 .work-thumb, .feature-thumb, .about-photo {
   background: #1f1f24;

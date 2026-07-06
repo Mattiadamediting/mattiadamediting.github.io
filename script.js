@@ -22,6 +22,19 @@
   update();
 })();
 
+// Card cliccabili: il click sulla card apre il primo link attivo
+(function () {
+  document.querySelectorAll(".work").forEach(function (card) {
+    var link = card.querySelector(".work-link:not([data-pending])");
+    if (!link) return;
+    card.classList.add("clickable");
+    card.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return; // i link interni restano autonomi
+      window.open(link.href, "_blank", "noopener");
+    });
+  });
+})();
+
 // Reveal on scroll (rispetta prefers-reduced-motion via CSS)
 (function () {
   var els = document.querySelectorAll(".works .work, .feature-card, .about-grid, .contact-row");
