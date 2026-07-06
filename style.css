@@ -264,3 +264,72 @@ footer {
 /* ---------- reveal ---------- */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.on { opacity: 1; transform: none; }
+
+/* ---------- grana pellicola ---------- */
+.grain {
+  position: fixed;
+  inset: -120px;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.05;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)" opacity="0.7"/></svg>');
+  animation: grain 7s steps(10) infinite;
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2%, 1%); }
+  40% { transform: translate(1%, -2%); }
+  60% { transform: translate(-1%, 2%); }
+  80% { transform: translate(2%, -1%); }
+}
+@media (prefers-reduced-motion: reduce) { .grain { animation: none; } }
+
+/* ---------- titoli hero: reveal da titoli di testa ---------- */
+h1 .line { display: block; overflow: hidden; }
+h1 .line-in { display: block; transform: translateY(110%); animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; }
+h1 .line + .line .line-in { animation-delay: 0.3s; }
+h1 .thin { font-weight: 300; font-stretch: 105%; }
+@keyframes rise { to { transform: none; } }
+
+.hero .eyebrow { opacity: 0; animation: fadeup 0.7s ease 0.7s forwards; }
+.hero-sub { opacity: 0; animation: fadeup 0.7s ease 0.85s forwards; }
+.reel { opacity: 0; animation: fadeup 0.8s ease 1s forwards; }
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  h1 .line-in, .hero .eyebrow, .hero-sub, .reel { animation: none; transform: none; opacity: 1; }
+}
+
+/* ---------- numeri di sezione giganti ---------- */
+section[data-num] { position: relative; }
+section[data-num]::before {
+  content: attr(data-num);
+  position: absolute;
+  top: clamp(8px, 3vw, 24px);
+  left: 4px;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: clamp(6rem, 15vw, 10.5rem);
+  line-height: 0.8;
+  color: rgba(242, 239, 233, 0.04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+section[data-num] > * { position: relative; z-index: 1; }
+
+/* ---------- hover raffinati ---------- */
+.work { overflow: hidden; }
+.work-thumb { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.work:hover .work-thumb { transform: scale(1.025); }
+.work-link { transition: color 0.2s ease; }
+@media (prefers-reduced-motion: reduce) { .work:hover .work-thumb { transform: none; } }
+
+/* ---------- dettagli brand ---------- */
+::selection { background: var(--cotto); color: var(--nero); }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--nero); }
+::-webkit-scrollbar-thumb { background: var(--linea); }
+::-webkit-scrollbar-thumb:hover { background: var(--cotto); }
