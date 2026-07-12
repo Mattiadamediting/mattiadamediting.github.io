@@ -208,6 +208,7 @@ h2 .clip-mark { font-family: var(--mono); font-weight: 400; }
 .feature-body { padding: 26px 28px; align-self: center; }
 .feature-body h3 { font-size: 1.35rem; font-weight: 500; margin: 4px 0 10px; }
 .feature-body > p:not(.work-role) { color: var(--moviola); font-size: 15.5px; }
+.feature-body .work-link { display: inline-block; margin-top: 14px; }
 @media (max-width: 680px) { .feature-card { grid-template-columns: 1fr; } }
 
 /* ---------- about ---------- */
