@@ -183,7 +183,9 @@ h2 .clip-mark { font-family: var(--mono); font-weight: 400; }
 }
 .work-thumb { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--linea); background-size: cover; background-position: center; }
 .work-thumb::after, .about-photo::after { content: attr(data-initial); font-size: 22px; }
-.work-body { padding: 18px 20px 22px; }
+.work { display: flex; flex-direction: column; }
+.work-body { padding: 18px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+.work-body .work-links, .work-body > .work-link { margin-top: auto; padding-top: 14px; }
 .work h3 { font-size: 1.12rem; font-weight: 500; }
 .work-role {
   font-family: var(--mono);
